@@ -15,7 +15,7 @@ class CreateAttemptsTable extends Migration
   {
     Schema::create('attempts', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->bigInteger('username');
+      $table->string('username');
       $table->bigInteger('module_id');
       $table->boolean('done')->nullable()->default(false);
       $table->timestamps();

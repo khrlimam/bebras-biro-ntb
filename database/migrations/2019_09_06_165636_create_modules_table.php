@@ -20,7 +20,7 @@ class CreateModulesTable extends Migration
       $table->enum('jenis', ['latihan', 'ujian']);
       $table->bigInteger('grade_id');
       $table->integer('waktu');
-      $table->string('media_path');
+      $table->string('media_path')->nullable();
       $table->timestamps();
     });
   }

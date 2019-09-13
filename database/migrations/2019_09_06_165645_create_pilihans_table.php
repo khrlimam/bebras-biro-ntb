@@ -15,7 +15,7 @@ class CreatePilihansTable extends Migration
     {
         Schema::create('pilihans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('pilihan');
+            $table->string('pilihan');
             $table->bigInteger('soal_id');
             $table->timestamps();
         });

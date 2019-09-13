@@ -84,7 +84,6 @@ class AttemptController extends Controller
       $soal = $this->getAttemptQuestionAt($id, 0);
       $soal['all'] = true;
     }
-    $soal->pilihans;
     return $soal;
   }
 

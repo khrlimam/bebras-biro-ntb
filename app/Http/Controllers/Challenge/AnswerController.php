@@ -62,14 +62,12 @@ class AnswerController extends Controller
    */
   private function preventAnswerMoreThanOnce($attemptId, $soalId)
   {
-    try {
-      $answeredQuestion = Attempt::where('username', Auth::user()->username)
-        ->where('id', $attemptId)->first()->answers
-        ->where('soal_id', $soalId)->first();
-      assert(!$answeredQuestion);
-    } catch (\Exception $_) {
+//    use if check manual, using try catch errors on heroku
+    $answeredQuestion = Attempt::where('username', Auth::user()->username)
+      ->where('id', $attemptId)->first()->answers
+      ->where('soal_id', $soalId)->first();
+    if ($answeredQuestion)
       throw new SoalHasBeenAnsweredException();
-    }
   }
 
   /**

@@ -83,6 +83,7 @@ class AttemptController extends Controller
       $soal = $this->getAttemptQuestionAt($id, 0);
       $soal['all'] = true;
     }
+    $soal->pilihans;
     return $soal;
   }
 
@@ -90,7 +91,6 @@ class AttemptController extends Controller
   {
     $attempt = Attempt::find($id);
     $soal = $attempt->module->soals->get($position);
-    $soal->pilihans;
     return $soal;
   }
 

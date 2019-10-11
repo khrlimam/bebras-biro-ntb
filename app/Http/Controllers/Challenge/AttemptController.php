@@ -79,7 +79,9 @@ class AttemptController extends Controller
     //    use if check manual, using try catch errors on heroku
     $soal = $this->getUnAnsweredQuery($id)->first();
     if (!$soal) {
-      Attempt::find($id)->update(['done' => true]);
+      $attempt = Attempt::find($id);
+      $attempt->done = true;
+      $attempt->save();
       $soal = $this->getAttemptQuestionAt($id, 0);
       $soal['all'] = true;
     }

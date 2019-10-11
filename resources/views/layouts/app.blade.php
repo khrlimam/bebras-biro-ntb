@@ -31,6 +31,13 @@
             background-color: rgba(0, 0, 0, 0);
         }
 
+        .center-cropped {
+            object-fit: cover;
+            object-position: center;
+            height: 300px;
+            width: 100%;
+        }
+
         body {
             padding-bottom: 150px;
         }

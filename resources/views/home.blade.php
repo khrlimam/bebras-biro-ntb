@@ -15,7 +15,7 @@
                     <div class="col-md-3 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
-                                 class="card-img-top lozad" alt="...">
+                                 class="center-cropped card-img-top lozad" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $module->title }}</h5>
                                 <p class="card-text">{{ $module->description }}</p>
@@ -42,7 +42,7 @@
                     <div class="col-md-3 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
-                                 class="card-img-top lozad" alt="...">
+                                 class="center-cropped card-img-top lozad" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $module->title }}</h5>
                                 <p class="card-text">{{ $module->description }}</p>
@@ -69,7 +69,7 @@
                     <div class="col-md-3 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
-                                 class="card-img-top lozad" alt="...">
+                                 class="center-cropped card-img-top lozad" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $module->title }}</h5>
                                 <p class="card-text">{{ $module->description }}</p>

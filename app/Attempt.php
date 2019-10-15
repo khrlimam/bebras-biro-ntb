@@ -8,6 +8,7 @@ class Attempt extends Model
 {
 
   protected $guarded = ['id'];
+  protected $appends = ['done_time'];
 
   protected $casts = [
     'done' => 'boolean'
@@ -25,21 +26,21 @@ class Attempt extends Model
     return $this->hasMany(Answer::class);
   }
 
-  public function doneTime()
+  public function getDoneTimeAttribute()
   {
     return $this->updated_at->diffInSeconds($this->created_at);
   }
 
   public function doneTimeHumanDescription()
   {
-    if ($this->doneTime() / 60 > 1) {
-      $menit = round($this->doneTime() / 60);
-      $detik = $this->doneTime() % 60;
+    if ($this->done_time / 60 > 1) {
+      $menit = round($this->done_time / 60);
+      $detik = $this->done_time % 60;
       if ($detik > 0)
         return $menit . ' menit ' . $detik . ' detik';
       return $menit . ' menit';
     }
-    return $this->doneTime() . ' detik';
+    return $this->done_time . ' detik';
   }
 
 

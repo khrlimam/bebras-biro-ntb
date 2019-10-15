@@ -9,6 +9,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
   Route::get('soal/create/{moduleid}', 'SoalController@create')->name('soal.create');
   Route::resource('soal', 'SoalController')->except('create');
   Route::resource('module', 'ModuleController')->except('show');
+  Route::get('module/{id}/attempts', 'ModuleController@attempts')->name('module.attempts');
   Route::get('tantangan/{moduleid}/soal', 'ModuleController@showSoal')->name('module.soal.show');
   Route::resource('grade', 'GradeController');
   Route::resource('user', 'UserController');

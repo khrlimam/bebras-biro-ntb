@@ -35,6 +35,10 @@
                                               action="{{ route('admin.module.destroy', $module->id) }}"
                                               onsubmit="event.preventDefault(); confirmDeleteForm(this)"
                                               class="btn btn-group btn-group-sm">
+                                            <a href="{{ route('admin.module.attempts', $module->id) }}"
+                                               class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"
+                                               title="Lihat score peserta pada modul ini">Score
+                                            </a>
                                             <a href="{{ route('admin.module.soal.show', $module->id) }}"
                                                class="btn btn-success" data-toggle="tooltip" data-placement="bottom"
                                                title="Lihat daftar soal"><i class="fa fa-list"></i>

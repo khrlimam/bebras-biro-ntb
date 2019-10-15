@@ -12,7 +12,7 @@
                     <hr>
                 </div>
                 @foreach($sd as $module)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-6 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
                                  class="center-cropped card-img-top lozad" alt="...">
@@ -39,7 +39,7 @@
                     <hr>
                 </div>
                 @foreach($smp as $module)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-6 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
                                  class="center-cropped card-img-top lozad" alt="...">
@@ -66,7 +66,7 @@
                     <hr>
                 </div>
                 @foreach($sma as $module)
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-6 mb-3">
                         <div class="card">
                             <img data-src="{{ $module->media_path }}"
                                  class="center-cropped card-img-top lozad" alt="...">

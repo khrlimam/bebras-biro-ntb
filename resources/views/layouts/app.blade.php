@@ -34,7 +34,7 @@
         .center-cropped {
             object-fit: cover;
             object-position: center;
-            height: 300px;
+            height: 400px;
             width: 100%;
         }
 

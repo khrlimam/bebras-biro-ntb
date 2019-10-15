@@ -143,9 +143,9 @@
                         Swal.fire({
                             type: 'info',
                             title: 'Soal ini telah kamu jawab 😋',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
+                            confirmButtonText: 'Soal berikutnya',
+                            timer: 10000
+                        }).then(nextQuestion)
                     }
                 })
             } else console.log("jawaban kosong, not doing anything!")

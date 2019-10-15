@@ -41,6 +41,8 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('cooladmin/css/theme.css') }}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{{ asset('DataTables/css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('DataTables/css/dataTables.bootstrap4.min.css') }}">
     @yield('css')
 
 </head>
@@ -68,15 +70,22 @@
 <script src="{{ asset('cooladmin/vendor/vector-map/jquery.vmap.min.js') }}"></script>
 <script src="{{ asset('cooladmin/vendor/vector-map/jquery.vmap.sampledata.js') }}"></script>
 <script src="{{ asset('cooladmin/vendor/vector-map/jquery.vmap.world.js') }}"></script>
+<script src="{{ asset('DataTables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('DataTables/js/dataTables.bootstrap4.min.js') }}"></script>
 
 <!-- Main JS-->
 <script src="{{ asset('cooladmin/js/main.js') }}"></script>
 <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('summernote/summernote-lite.js') }}"></script>
 <script>
-    $(document).ready(() => $("#tinymce").summernote({
-        height: 400
-    }))
+    $(document).ready(() => {
+        $("#tinymce").summernote({
+            height: 400
+        })
+
+        $("#dataTable").dataTable();
+
+    });
 
     function confirmDeleteForm(form) {
         Swal.fire({

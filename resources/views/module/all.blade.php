@@ -13,9 +13,9 @@
         </div>
         <div class="row">
             @foreach($modules as $module)
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <div class="card">
-                        <img data-src="{{ $module->media_path }}" 
+                        <img data-src="{{ $module->media_path }}"
                              class="center-cropped card-img-top lozad" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $module->title }}</h5>

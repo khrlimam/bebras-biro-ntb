@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ModuleRequest;
 use App\Module;
 use App\Util\Util;
+use Carbon\Carbon;
 
 class ModuleController extends Controller
 {
@@ -19,6 +20,31 @@ class ModuleController extends Controller
   {
     $modules = Module::all();
     return view('admin.module.index', compact('modules'));
+  }
+
+  public function attempts($id)
+  {
+    $filterDate = request('date');
+    if ($filterDate == '') $date = Carbon::today()->toDateString();
+    else $date = $filterDate;
+    $module = Module::find($id);
+    $grouped = $module->attempts()->whereDate('created_at', $date)->where('done', true)->get()->map(function ($attempt) {
+      $correctAnswers = $attempt->answers->filter(function ($item) {
+        return $item->correct;
+      })->count();
+      $score = $correctAnswers / $attempt->module->soals->count() * 100;
+      $attempt['score'] = $score;
+      unset($attempt['module']);
+      unset($attempt['answers']);
+      $attempt['human_time'] = $attempt->doneTimeHumanDescription();
+      return $attempt;
+    })->groupBy(function ($item) {
+      return $item['username'];
+    });
+    $data = collect(array_map(function($item) use ($grouped) {
+      return $grouped[$item]->sortBy('id')[0];
+    }, array_keys($grouped->toArray())))->sortBy('done_time');
+    return view('admin.module.attempts', compact('data', 'module'));
   }
 
   /**
